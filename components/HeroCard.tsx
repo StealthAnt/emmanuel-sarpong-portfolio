@@ -3,7 +3,7 @@
 import Image, { type StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
-import { coverStyle } from "@/lib/gradients";
+import { coverStyle, gradients } from "@/lib/gradients";
 import { useReducedMotion } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
@@ -134,7 +134,7 @@ export default function HeroCard({ eyebrow, title, rightText, gradient, image, c
             {/* brand-colour wash + legibility overlay */}
             <div
               className="absolute inset-0 opacity-40"
-              style={{ backgroundImage: coverStyle(gradient) }}
+              style={{ backgroundImage: gradients[gradient] }}
               aria-hidden="true"
             />
             <div className="absolute inset-0 bg-ink/60" aria-hidden="true" />
