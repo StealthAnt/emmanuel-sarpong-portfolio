@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { projects, industries, type Project } from "@/content/projects";
-import { coverStyle } from "@/lib/gradients";
+import { coverStyle, isImageCover } from "@/lib/gradients";
 import { cn } from "@/lib/utils";
 import { FadeIn } from "@/components/Reveal";
 
@@ -61,10 +61,19 @@ function ProjectCard({ project }: { project: Project }) {
         data-cursor="view"
         className="group block overflow-hidden rounded-3xl border border-white/8 bg-white/[0.03]"
       >
-        <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="relative aspect-[4/3] overflow-hidden bg-[#0B0B0C]">
           <div
             className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-            style={coverStyle(project.cover)}
+            style={
+              isImageCover(project.cover)
+                ? {
+                    backgroundImage: `url(${project.cover})`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                  }
+                : coverStyle(project.cover)
+            }
           />
           <span className="absolute left-4 top-4 rounded-full bg-black/40 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
             {project.industry}

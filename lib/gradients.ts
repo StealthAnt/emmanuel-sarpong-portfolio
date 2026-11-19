@@ -18,3 +18,8 @@ export function coverStyle(cover: string): React.CSSProperties {
     ? { backgroundImage: gradients[cover] }
     : { backgroundImage: `url(${cover})`, backgroundSize: "cover", backgroundPosition: "center" };
 }
+
+// True when `cover` is a real image path rather than a gradient key.
+export function isImageCover(cover: string): boolean {
+  return !(cover in gradients);
+}
