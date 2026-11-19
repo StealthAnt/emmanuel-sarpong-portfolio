@@ -1,3 +1,9 @@
+export type ProjectVideo = {
+  src: string; // path under /public, e.g. "/videos/foo.mp4"
+  poster: string; // image path used as video thumbnail
+  caption?: string;
+};
+
 export type Project = {
   slug: string;
   brand: string;
@@ -8,16 +14,19 @@ export type Project = {
   summary: string;
   cover: string; // gradient key or image path — see lib/gradients.ts
   gallery: string[];
+  videos?: ProjectVideo[];
   challenge: string;
   idea: string;
   outcome: string;
 };
 
+import adminOverrides from "./projects.admin.json";
+
 // Project covers/gallery accept a gradient key (see lib/gradients.ts) or an
 // image path under /public/images.
-// TODO: several works include video deliverables (MP4s in the client's Works
-// folder) — video support in the gallery is not yet implemented.
-export const projects: Project[] = [
+// Projects may include `videos` (MP4s under /public/videos) shown in the
+// Films section of each case study.
+const baseProjects: Project[] = [
   {
     slug: "telecel-unlock-x",
     brand: "Telecel Ghana",
@@ -34,6 +43,13 @@ export const projects: Project[] = [
       "/images/projects/telecel-cash-millionaire.jpg",
       "/images/projects/telecel-cash-move-money.jpg",
       "/images/projects/telecel-cash-low-charges.jpg",
+    ],
+    videos: [
+      {
+        src: "/videos/telecel-cash.mp4",
+        poster: "/images/projects/telecel-cash-poster.jpg",
+        caption: "Telecel Cash — move money, seamlessly",
+      },
     ],
     challenge:
       "Telecel needed a launch campaign that could sustain intrigue across teaser, reveal and rollout phases while flexing across TV, OOH, social and retail.",
@@ -116,6 +132,13 @@ export const projects: Project[] = [
       "/images/projects/dbg-impact-stats.jpg",
       "/images/projects/dbg-impact-invest.jpg",
     ],
+    videos: [
+      {
+        src: "/videos/dbg-women-led.mp4",
+        poster: "/images/projects/dbg-women-led-poster.jpg",
+        caption: "DBG — investing in women-led enterprise",
+      },
+    ],
     challenge:
       "Translate DBG's development-finance impact — GHS 2.13B in loans, 757+ institutions, agribusiness and tech investment — into a narrative people actually want to read.",
     idea:
@@ -136,6 +159,13 @@ export const projects: Project[] = [
     gallery: [
       "/images/projects/vaseline-intense-care.jpg",
       "/images/projects/vaseline-even-tone.jpg",
+    ],
+    videos: [
+      {
+        src: "/videos/vaseline-bundle.mp4",
+        poster: "/images/projects/vaseline-bundle-poster.jpg",
+        caption: "Vaseline bundle promotion",
+      },
     ],
     challenge:
       "Give Vaseline's Intensive Care range culturally resonant, shelf-ready creatives for the African market — not recycled global assets.",
@@ -209,6 +239,13 @@ export const projects: Project[] = [
       "ATL and digital campaign bringing The Pelican Hotel's Cantonments property to life for guests and the local market.",
     cover: "/images/projects/pelican-hotel-1.jpg",
     gallery: ["/images/projects/pelican-hotel-2.jpg"],
+    videos: [
+      {
+        src: "/videos/pelican-hotel.mp4",
+        poster: "/images/projects/pelican-hotel-poster.jpg",
+        caption: "The Pelican Hotel — brand film",
+      },
+    ],
     challenge:
       "Position a heritage Accra hotel as the city's premium address through creative that felt warm, established and unmistakably local.",
     idea:
@@ -216,7 +253,172 @@ export const projects: Project[] = [
     outcome:
       "Campaign assets produced for The Pelican Hotel's marketing channels. [Metrics to be added by client.]",
   },
+  {
+    slug: "unicef-hpv",
+    brand: "UNICEF",
+    title: "Cervical Cancer Prevention Campaign",
+    year: "2025",
+    role: "Campaign Design, Film",
+    industry: "Healthcare",
+    summary:
+      "A public-health film campaign protecting girls aged 9–14 from cervical cancer through HPV vaccination awareness in Ghana.",
+    cover: "/images/projects/unicef-hpv-poster.jpg",
+    gallery: [],
+    videos: [
+      {
+        src: "/videos/unicef-hpv.mp4",
+        poster: "/images/projects/unicef-hpv-poster.jpg",
+        caption: "UNICEF HPV campaign film",
+      },
+    ],
+    challenge:
+      "Nearly 3,000 women in Ghana are affected by cervical cancer each year — UNICEF needed a campaign that would move parents to vaccinate their daughters.",
+    idea:
+      "An emotive health film speaking directly to parents — 'Protect your 9–14 year old daughter against cervical cancer to keep her dreams alive' — built for broadcast and social.",
+    outcome:
+      "Campaign film produced for the HPV vaccination awareness drive. [Metrics to be added by client.]",
+  },
+  {
+    slug: "bee-the-reason",
+    brand: "bee:wild",
+    title: "'Be The Reason' — Bring the Buzz Back",
+    year: "2025",
+    role: "Campaign Design, Film",
+    industry: "Social Impact",
+    summary:
+      "A conservation film rallying Gen Z to protect wild bees — 'real change doesn't always start big'.",
+    cover: "/images/projects/bee-the-reason-poster.jpg",
+    gallery: [],
+    videos: [
+      {
+        src: "/videos/bee-the-reason.mp4",
+        poster: "/images/projects/bee-the-reason-poster.jpg",
+        caption: "Be The Reason — wild bee conservation film",
+      },
+    ],
+    challenge:
+      "Wild bee populations are collapsing, but conservation messaging rarely reaches the generation that will actually act.",
+    idea:
+      "The 'Be The Reason' platform reframed conservation as personal agency — a punchy, youth-coded film showing how small actions bring the buzz back.",
+    outcome:
+      "Campaign film produced for the bee:wild conservation initiative. [Metrics to be added by client.]",
+  },
+  {
+    slug: "agra-cocoa",
+    brand: "AGRA",
+    title: "Sustainably Growing Africa's Food Systems",
+    year: "2025",
+    role: "Campaign Design, Film",
+    industry: "Social Impact",
+    summary:
+      "A brand film on sustainable agriculture — 'the future of cocoa farming is promising' — for Africa's food systems.",
+    cover: "/images/projects/agra-cocoa-poster.jpg",
+    gallery: [],
+    videos: [
+      {
+        src: "/videos/agra-cocoa.mp4",
+        poster: "/images/projects/agra-cocoa-poster.jpg",
+        caption: "AGRA — sustainably growing Africa's food systems",
+      },
+    ],
+    challenge:
+      "Make sustainable agriculture feel optimistic and investable rather than preachy — especially in the cocoa sector.",
+    idea:
+      "A hopeful, landscape-led film positioning African farmers as the future of food systems, built around the 'promising future' narrative.",
+    outcome:
+      "Brand film produced for AGRA's agriculture programmes. [Metrics to be added by client.]",
+  },
+  {
+    slug: "ayra-starr-mobo",
+    brand: "Ayra Starr",
+    title: "MOBO Awards 2025 — Winner Announcement",
+    year: "2025",
+    role: "Motion Design, Announcement Creative",
+    industry: "Entertainment",
+    summary:
+      "Winner announcement creative for Ayra Starr's Best African & Best International Act win at the 2025 MOBO Awards.",
+    cover: "/images/projects/ayra-starr-mobo-poster.jpg",
+    gallery: [],
+    videos: [
+      {
+        src: "/videos/ayra-starr-mobo.mp4",
+        poster: "/images/projects/ayra-starr-mobo-poster.jpg",
+        caption: "Ayra Starr — MOBO Awards 2025 winner announcement",
+      },
+    ],
+    challenge:
+      "Announce a landmark MOBO win with creative that matched the scale of the moment.",
+    idea:
+      "A high-energy announcement piece built around the official winner badge — designed to cut through the awards-night noise.",
+    outcome:
+      "Announcement creative delivered for the MOBO Awards 2025 moment. [Metrics to be added by client.]",
+  },
+  {
+    slug: "the-other-side",
+    brand: "Basit",
+    title: "'The Other Side' — Music Video",
+    year: "2025",
+    role: "Art Direction, Music Video",
+    industry: "Entertainment",
+    summary:
+      "Music video and teaser for Basit's 'The Other Side' — a cinematic short film exploring identity and hidden lives.",
+    cover: "/images/projects/the-other-side-poster.jpg",
+    gallery: [],
+    videos: [
+      {
+        src: "/videos/the-other-side.mp4",
+        poster: "/images/projects/the-other-side-poster.jpg",
+        caption: "'The Other Side' — full music video",
+      },
+      {
+        src: "/videos/the-other-side-teaser.mp4",
+        poster: "/images/projects/the-other-side-teaser-poster.jpg",
+        caption: "'The Other Side' — teaser",
+      },
+    ],
+    challenge:
+      "Create a music video with cinematic weight — a story-driven piece, not just performance coverage.",
+    idea:
+      "A moody, narrative-led treatment built around the 'other side' concept — teased first, then released as a full short film.",
+    outcome:
+      "Teaser and full music video produced for Basit's release. [Metrics to be added by client.]",
+  },
+  {
+    slug: "ogilvy-eid",
+    brand: "Ogilvy Africa",
+    title: "Eid Celebration Film",
+    year: "2025",
+    role: "Art Direction, Film",
+    industry: "Branding",
+    summary:
+      "An Eid Mubarak celebration film for Ogilvy Africa — agency culture, community and the festive season.",
+    cover: "/images/projects/ogilvy-eid-poster.jpg",
+    gallery: [],
+    videos: [
+      {
+        src: "/videos/ogilvy-eid.mp4",
+        poster: "/images/projects/ogilvy-eid-poster.jpg",
+        caption: "Ogilvy Africa — Eid film",
+      },
+    ],
+    challenge:
+      "Mark Eid with a film that celebrated the people of the agency — warm, human and unmistakably Ogilvy.",
+    idea:
+      "A short celebratory film capturing Eid moments across the Ogilvy Africa community, wrapped in clean agency branding.",
+    outcome:
+      "Eid film produced and shared across Ogilvy Africa's channels. [Metrics to be added by client.]",
+  },
 ];
+
+// Admin-saved overrides (written by /admin via /api/admin/projects) replace
+// base entries by slug; entries with new slugs are appended.
+const overrides = adminOverrides as unknown as Project[];
+export const projects: Project[] = overrides.length
+  ? [
+      ...baseProjects.map((p) => overrides.find((o) => o.slug === p.slug) ?? p),
+      ...overrides.filter((o) => !baseProjects.some((p) => p.slug === o.slug)),
+    ]
+  : baseProjects;
 
 export const industries = [
   "All",
@@ -224,5 +426,9 @@ export const industries = [
   "Telecom",
   "FMCG",
   "Beverages",
+  "Healthcare",
   "Hospitality",
+  "Entertainment",
+  "Social Impact",
+  "Branding",
 ];

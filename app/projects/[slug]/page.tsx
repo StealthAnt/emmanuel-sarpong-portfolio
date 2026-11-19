@@ -5,6 +5,7 @@ import { projects } from "@/content/projects";
 import { coverStyle } from "@/lib/gradients";
 import { Reveal, FadeIn } from "@/components/Reveal";
 import ProjectGallery from "@/components/ProjectGallery";
+import ProjectFilms from "@/components/ProjectFilms";
 import MagneticButton from "@/components/MagneticButton";
 
 type Params = { params: { slug: string } };
@@ -80,14 +81,27 @@ export default function ProjectPage({ params }: Params) {
           ))}
         </div>
 
-        <div className="mt-24">
-          <FadeIn>
-            <h2 className="mb-10 text-3xl font-extrabold tracking-tight md:text-4xl">
-              <Reveal>Gallery</Reveal>
-            </h2>
-          </FadeIn>
-          <ProjectGallery images={project.gallery} title={project.title} />
-        </div>
+        {project.videos && project.videos.length > 0 && (
+          <div className="mt-24">
+            <FadeIn>
+              <h2 className="mb-10 text-3xl font-extrabold tracking-tight md:text-4xl">
+                <Reveal>Films</Reveal>
+              </h2>
+            </FadeIn>
+            <ProjectFilms videos={project.videos} title={project.title} />
+          </div>
+        )}
+
+        {project.gallery.length > 0 && (
+          <div className="mt-24">
+            <FadeIn>
+              <h2 className="mb-10 text-3xl font-extrabold tracking-tight md:text-4xl">
+                <Reveal>Gallery</Reveal>
+              </h2>
+            </FadeIn>
+            <ProjectGallery images={project.gallery} title={project.title} />
+          </div>
+        )}
 
         {/* Next project */}
         <FadeIn className="mt-28">
