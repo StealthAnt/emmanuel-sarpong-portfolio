@@ -81,18 +81,22 @@ export default function Cursor() {
     <>
       <div
         ref={dotRef}
-        className="pointer-events-none fixed left-0 top-0 z-[95] h-2 w-2 rounded-full bg-accent"
-        style={{ transform: "translate(-100px, -100px)" }}
+        className="pointer-events-none fixed left-0 top-0 z-[95] h-1.5 w-1.5 rounded-full bg-accent"
+        style={{ transform: "translate(-100px, -100px)", boxShadow: "0 0 12px rgba(255,90,31,.8)" }}
         aria-hidden="true"
       />
       <div
         ref={ringRef}
-        className="pointer-events-none fixed left-0 top-0 z-[94] flex h-10 w-10 items-center justify-center rounded-full border border-accent/70"
+        className={`pointer-events-none fixed left-0 top-0 z-[94] flex items-center justify-center rounded-full border transition-[background-color,border-color] duration-200 ${
+          label
+            ? "h-20 w-20 border-accent bg-accent/90"
+            : "h-9 w-9 border-white mix-blend-difference"
+        }`}
         style={{ transform: "translate(-100px, -100px)" }}
         aria-hidden="true"
       >
         {label && (
-          <span className="text-[10px] font-bold uppercase tracking-widest text-accent">
+          <span className="text-[11px] font-extrabold uppercase tracking-widest text-white">
             {label}
           </span>
         )}

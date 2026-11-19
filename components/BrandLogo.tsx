@@ -12,7 +12,7 @@ export default function BrandLogo({ brand }: { brand: Brand }) {
           alt={brand.name}
           width={128}
           height={32}
-          className="h-8 w-auto max-w-32 object-contain opacity-80 brightness-0 invert"
+          className="h-8 w-auto max-w-36 object-contain"
           unoptimized
         />
       </span>

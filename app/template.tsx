@@ -22,7 +22,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         aria-hidden="true"
       >
         <span className="text-2xl font-extrabold tracking-tight text-white">
-          ES<span className="text-ink">.</span>
+          EMS<span className="text-ink">.</span>
         </span>
       </motion.div>
       {children}

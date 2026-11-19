@@ -1,12 +1,14 @@
 export const site = {
   name: "Emmanuel Mensah Sarpong",
   shortName: "Emmanuel Mensah Sarpong",
-  monogram: "ES",
+  monogram: "EMS",
   role: "Creative Designer & Art Director",
   company: "Ogilvy Africa",
   email: "", // TODO: client email — not yet supplied
   phoneDisplay: "+233 55 739 3161",
-  whatsapp: "https://wa.me/233557393161",
+  whatsapp:
+    "https://wa.me/233557393161?text=" +
+    encodeURIComponent("Hi Emmanuel, I'm reaching out about a potential project."),
   location: "Accra, Ghana",
   tagline: "Ideas that move brands and people.",
   heroSupporting:

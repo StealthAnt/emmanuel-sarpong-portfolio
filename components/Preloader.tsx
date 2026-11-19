@@ -37,7 +37,7 @@ export default function Preloader() {
         />
         <text
           x="60" y="72" textAnchor="middle"
-          fontSize="44" fontWeight="800" fill="#f4f4f5"
+          fontSize="30" fontWeight="800" fill="#f4f4f5"
           fontFamily="var(--font-jakarta), sans-serif"
           className="animate-[fadein_.5s_.5s_ease_forwards] opacity-0"
         >

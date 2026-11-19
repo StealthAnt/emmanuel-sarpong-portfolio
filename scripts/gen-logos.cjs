@@ -6,6 +6,26 @@ const path = require("path");
 const W = 240, H = 48;
 
 // Each entry: lines of text centered in the 240x48 viewBox.
+// Brand colors applied to generated wordmarks (real logos fetched separately).
+const colors = {
+  "development-bank-ghana": "#4A90D9",
+  "standard-chartered": "#6FA8DC",
+  "telecel": "#E4002B",
+  "nala": "#B8E62E",
+  "vaseline": "#1E6FD9",
+  "comfort": "#2E9BC6",
+  "coca-cola": "#D00013",
+  "baileys": "#F5C04E",
+  "nivea": "#003DA5",
+  "acacia-health": "#2E9E5B",
+  "star": "#E31B23",
+  "guinness": "#00853F",
+  "orijin": "#C8102E",
+  "gordons-pink-gin": "#E91E8C",
+  "fanta": "#FF6900",
+  "chicken-delight": "#E87722",
+};
+
 const brands = {
   "development-bank-ghana": [
     { text: "DBG", size: 30, weight: 800, y: 26, spacing: 4 },
@@ -66,6 +86,12 @@ const dir = path.join(__dirname, "..", "public", "logos");
 fs.mkdirSync(dir, { recursive: true });
 
 for (const [slug, lines] of Object.entries(brands)) {
+  const file = path.join(dir, `${slug}.svg`);
+  // Skip files that aren't our generated wordmarks (i.e. real fetched logos).
+  if (fs.existsSync(file) && !fs.readFileSync(file, "utf8").includes('font-family="system-ui')) {
+    console.log("keep ", slug, "(real logo)");
+    continue;
+  }
   const texts = lines
     .map((l) => {
       const anchor = l.anchor ?? "middle";
@@ -73,7 +99,8 @@ for (const [slug, lines] of Object.entries(brands)) {
       const family = l.family ?? "system-ui, Arial, sans-serif";
       const style = l.style ? ` font-style="${l.style}"` : "";
       const spacing = l.spacing ? ` letter-spacing="${l.spacing}"` : "";
-      return `  <text x="${x}" y="${l.y}" text-anchor="${anchor}" font-family="${family}" font-size="${l.size}" font-weight="${l.weight}" fill="#ffffff"${style}${spacing}>${l.text}</text>`;
+      const fill = colors[slug] || "#ffffff";
+      return `  <text x="${x}" y="${l.y}" text-anchor="${anchor}" font-family="${family}" font-size="${l.size}" font-weight="${l.weight}" fill="${fill}"${style}${spacing}>${l.text}</text>`;
     })
     .join("\n");
 
@@ -81,6 +108,6 @@ for (const [slug, lines] of Object.entries(brands)) {
 ${texts}
 </svg>
 `;
-  fs.writeFileSync(path.join(dir, `${slug}.svg`), svg);
+  fs.writeFileSync(file, svg);
   console.log("wrote", slug);
 }
