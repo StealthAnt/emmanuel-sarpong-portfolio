@@ -1,6 +1,6 @@
 export const site = {
   name: "Emmanuel Mensah Sarpong",
-  shortName: "Emmanuel Sarpong",
+  shortName: "Emmanuel Mensah Sarpong",
   monogram: "ES",
   role: "Creative Designer & Art Director",
   company: "Ogilvy Africa",
