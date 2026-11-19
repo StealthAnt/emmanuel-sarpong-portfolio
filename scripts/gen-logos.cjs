@@ -87,9 +87,15 @@ fs.mkdirSync(dir, { recursive: true });
 
 for (const [slug, lines] of Object.entries(brands)) {
   const file = path.join(dir, `${slug}.svg`);
-  // Skip files that aren't our generated wordmarks (i.e. real fetched logos).
+  // Skip when a real logo already exists as .svg or .png.
+  const png = path.join(dir, `${slug}.png`);
+  const hasRealPng = fs.existsSync(png) && !fs.readFileSync(png).includes("font-family");
   if (fs.existsSync(file) && !fs.readFileSync(file, "utf8").includes('font-family="system-ui')) {
     console.log("keep ", slug, "(real logo)");
+    continue;
+  }
+  if (hasRealPng) {
+    console.log("keep ", slug, "(real png)");
     continue;
   }
   const texts = lines
