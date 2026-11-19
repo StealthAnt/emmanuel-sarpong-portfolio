@@ -5,12 +5,11 @@ import SectionHeader from "@/components/SectionHeader";
 import { FadeIn } from "@/components/Reveal";
 import MagneticButton from "@/components/MagneticButton";
 import { site } from "@/content/site";
-import { gradients } from "@/lib/gradients";
 
 const cards = [
-  { label: "Campaign craft", gradient: gradients.sunset },
-  { label: "Brand worlds", gradient: gradients.violet },
-  { label: "People first", gradient: gradients.ocean },
+  { label: "Campaign craft", image: "/images/projects/telecel-unlock-x.jpg" },
+  { label: "Brand worlds", image: "/images/projects/vaseline-cocoa-glow.jpg" },
+  { label: "People first", image: "/images/projects/sc-mental-health-unmask.jpg" },
 ];
 
 export default function BehindSection() {
@@ -33,8 +32,8 @@ export default function BehindSection() {
               className="group relative aspect-[4/5] overflow-hidden rounded-3xl"
             >
               <div
-                className="absolute inset-0 grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
-                style={{ backgroundImage: c.gradient }}
+                className="absolute inset-0 bg-cover bg-center grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                style={{ backgroundImage: `url(${c.image})` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-60" />
               <p className="absolute bottom-5 left-5 text-sm font-bold uppercase tracking-widest text-white">
