@@ -9,3 +9,8 @@ nul
 
 .vercel
 .env*
+
+# Local asset staging (not for repo)
+Works/
+Works.zip
+dev.log
