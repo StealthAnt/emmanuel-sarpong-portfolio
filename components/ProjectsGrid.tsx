@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { forwardRef, useMemo, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { projects, industries, type Project } from "@/content/projects";
@@ -47,9 +47,13 @@ export default function ProjectsGrid() {
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+const ProjectCard = forwardRef<HTMLDivElement, { project: Project }>(function ProjectCard(
+  { project },
+  ref
+) {
   return (
     <motion.div
+      ref={ref}
       layout
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -88,4 +92,4 @@ function ProjectCard({ project }: { project: Project }) {
       </Link>
     </motion.div>
   );
-}
+});
