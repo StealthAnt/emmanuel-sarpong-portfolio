@@ -31,10 +31,12 @@ export default function BehindSection() {
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
               className="group relative aspect-[4/5] overflow-hidden rounded-3xl"
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
-                style={{ backgroundImage: `url(${c.image})` }}
-              />
+              <div className="absolute inset-3 overflow-hidden rounded-2xl bg-[#0B0B0C]">
+                <div
+                  className="absolute inset-0 bg-contain bg-center bg-no-repeat grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${c.image})` }}
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-60" />
               <p className="absolute bottom-5 left-5 text-sm font-bold uppercase tracking-widest text-white">
                 {c.label}
