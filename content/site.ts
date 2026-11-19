@@ -22,8 +22,8 @@ export const site = {
   ],
   industries: ["Banking", "Healthcare", "FMCG", "Telecom"],
   bio: [
-    "Creative Designer and Art Director with 5+ years of experience across creative agency, media and freelance environments, translating brand objectives into visual concepts and multi-channel creative work.",
-    "At Ogilvy Africa since September 2023, developing integrated campaigns for brands across banking, healthcare, FMCG and telecommunications. I combine design craft with AI-enabled creative workflows to explore concepts and improve production efficiency.",
+    "**Creative Designer and Art Director** with **5+ years of experience** across creative agency, media and freelance environments, translating brand objectives into visual concepts and multi-channel creative work.",
+    "At **Ogilvy Africa since September 2023**, developing integrated campaigns for brands across **banking, healthcare, FMCG and telecommunications**. I combine design craft with **AI-enabled creative workflows** to explore concepts and improve production efficiency.",
   ],
   behindTitle: "Shaping Experiences That Make Life Simpler",
   behindParagraph:

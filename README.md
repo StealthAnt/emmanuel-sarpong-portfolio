@@ -29,7 +29,7 @@ Without these vars the site still builds and runs — the contact form shows an 
 
 ## Swapping in real assets
 
-- **Client logos**: drop `public/logos/{slug}.svg` for any brand in `content/brands.ts` — the text wordmark fallback is replaced automatically.
+- **Client logos**: `public/logos/{slug}.svg` files are auto-detected at build time. Placeholder typographic wordmarks are already in place (regenerate with `node scripts/gen-logos.cjs`); drop in the real brand SVGs using the same filenames to replace them.
 - **Project images**: add files under `public/images/` and set `cover`/`gallery` entries to the path.
 - **Portrait / hero imagery**: real photos live in `assets/` and are statically imported (`portrait-home.jpg` → home hero, `about-portrait.jpg` → About page) via `next/image` with automatic blur placeholders. Replace the files or the imports in `components/home/HomeHero.tsx` and `app/about/page.tsx`.
 

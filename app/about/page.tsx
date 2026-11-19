@@ -6,6 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import Timeline from "@/components/Timeline";
 import { Reveal, FadeIn } from "@/components/Reveal";
 import Stat from "@/components/Stat";
+import RichText from "@/components/RichText";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -51,7 +52,7 @@ export default function AboutPage() {
           <FadeIn delay={0.15}>
             <div className="space-y-5 text-base leading-relaxed text-muted md:text-lg">
               {site.bio.map((p, i) => (
-                <p key={i}>{p}</p>
+                <RichText key={i} text={p} />
               ))}
             </div>
           </FadeIn>
