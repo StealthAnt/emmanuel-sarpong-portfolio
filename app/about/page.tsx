@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import portrait from "@/assets/about-portrait.jpg";
+import homePortrait from "@/assets/portrait-home.jpg";
 import HeroCard from "@/components/HeroCard";
 import SectionHeader from "@/components/SectionHeader";
 import Timeline from "@/components/Timeline";
@@ -23,6 +24,7 @@ export default function AboutPage() {
         title="About"
         rightText="The Person Behind the Work"
         gradient="violet"
+        image={portrait}
       />
 
       {/* Who I am */}
@@ -39,7 +41,7 @@ export default function AboutPage() {
             <FadeIn delay={0.2} className="mt-10">
               <div className="relative aspect-[3/4] max-w-xs overflow-hidden rounded-3xl border border-white/10">
                 <Image
-                  src={portrait}
+                  src={homePortrait}
                   alt="Emmanuel Mensah Sarpong"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"

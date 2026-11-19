@@ -26,7 +26,8 @@ export default function Cursor() {
     const ring = ringRef.current;
     if (!dot || !ring) return;
 
-    document.documentElement.classList.add("cursor-none-desktop");
+    const root = document.documentElement;
+    root.classList.add("cursor-none-desktop");
 
     const s = stateRef.current;
     s.mx = window.innerWidth / 2;
@@ -34,7 +35,12 @@ export default function Cursor() {
     s.rx = s.mx;
     s.ry = s.my;
 
+    let moved = false;
     const move = (e: MouseEvent) => {
+      moved = true;
+      if (!root.classList.contains("cursor-none-desktop")) {
+        root.classList.add("cursor-none-desktop");
+      }
       s.mx = e.clientX;
       s.my = e.clientY;
     };
@@ -55,23 +61,36 @@ export default function Cursor() {
 
     let raf = 0;
     const loop = () => {
-      s.rx += (s.mx - s.rx) * 0.2;
-      s.ry += (s.my - s.ry) * 0.2;
+      s.rx += (s.mx - s.rx) * 0.45;
+      s.ry += (s.my - s.ry) * 0.45;
       dot.style.transform = `translate(${s.mx}px, ${s.my}px) translate(-50%, -50%)`;
       ring.style.transform = `translate(${s.rx}px, ${s.ry}px) translate(-50%, -50%) scale(${s.scale})`;
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
 
+    // Safety net: if no mousemove ever arrives (embedded preview, remote
+    // session, etc.) restore the native cursor instead of hiding it forever.
+    const watchdog = setTimeout(() => {
+      if (!moved) root.classList.remove("cursor-none-desktop");
+    }, 2000);
+    const watchdog2 = setInterval(() => {
+      if (!moved) root.classList.remove("cursor-none-desktop");
+    }, 2000);
+
     window.addEventListener("mousemove", move, { passive: true });
+    window.addEventListener("pointermove", move, { passive: true });
     window.addEventListener("mouseover", over, { passive: true });
     window.addEventListener("mouseout", leave, { passive: true });
     return () => {
+      clearTimeout(watchdog);
+      clearInterval(watchdog2);
       cancelAnimationFrame(raf);
       window.removeEventListener("mousemove", move);
+      window.removeEventListener("pointermove", move);
       window.removeEventListener("mouseover", over);
       window.removeEventListener("mouseout", leave);
-      document.documentElement.classList.remove("cursor-none-desktop");
+      root.classList.remove("cursor-none-desktop");
     };
   }, [reduced, touch]);
 
@@ -81,8 +100,8 @@ export default function Cursor() {
     <>
       <div
         ref={dotRef}
-        className="pointer-events-none fixed left-0 top-0 z-[95] h-1.5 w-1.5 rounded-full bg-accent"
-        style={{ transform: "translate(-100px, -100px)", boxShadow: "0 0 12px rgba(255,90,31,.8)" }}
+        className="pointer-events-none fixed left-0 top-0 z-[95] h-2 w-2 rounded-full bg-accent"
+        style={{ transform: "translate(-100px, -100px)", boxShadow: "0 0 14px rgba(255,90,31,.9)" }}
         aria-hidden="true"
       />
       <div
@@ -90,7 +109,7 @@ export default function Cursor() {
         className={`pointer-events-none fixed left-0 top-0 z-[94] flex items-center justify-center rounded-full border transition-[background-color,border-color] duration-200 ${
           label
             ? "h-20 w-20 border-accent bg-accent/90"
-            : "h-9 w-9 border-white mix-blend-difference"
+            : "h-10 w-10 border-white mix-blend-difference"
         }`}
         style={{ transform: "translate(-100px, -100px)" }}
         aria-hidden="true"

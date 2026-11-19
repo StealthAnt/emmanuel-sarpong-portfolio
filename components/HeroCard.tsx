@@ -1,5 +1,6 @@
 "use client";
 
+import Image, { type StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { coverStyle } from "@/lib/gradients";
@@ -12,6 +13,7 @@ type Props = {
   title: ReactNode;
   rightText?: string;
   gradient: string; // key from lib/gradients
+  image?: StaticImageData | string; // optional photo background
   children?: ReactNode; // overlay content inside the card
   className?: string;
 };
@@ -91,7 +93,7 @@ function HeroDecorations() {
   );
 }
 
-export default function HeroCard({ eyebrow, title, rightText, gradient, children, className }: Props) {
+export default function HeroCard({ eyebrow, title, rightText, gradient, image, children, className }: Props) {
   const reduced = useReducedMotion();
 
   const titleContent =
@@ -117,12 +119,33 @@ export default function HeroCard({ eyebrow, title, rightText, gradient, children
   return (
     <section className={cn("px-4 pt-24 md:px-8 md:pt-28", className)} aria-label="Page hero">
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] md:rounded-[2.75rem]">
-        {/* animated gradient mesh */}
-        <div
-          className="animate-mesh absolute -inset-[10%]"
-          style={coverStyle(gradient)}
-          aria-hidden="true"
-        />
+        {/* background: photo or animated gradient mesh */}
+        {image ? (
+          <>
+            <Image
+              src={image}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+              placeholder={typeof image === "object" ? "blur" : undefined}
+              aria-hidden="true"
+            />
+            {/* brand-colour wash + legibility overlay */}
+            <div
+              className="absolute inset-0 opacity-40"
+              style={{ backgroundImage: coverStyle(gradient) }}
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-ink/60" aria-hidden="true" />
+          </>
+        ) : (
+          <div
+            className="animate-mesh absolute -inset-[10%]"
+            style={coverStyle(gradient)}
+            aria-hidden="true"
+          />
+        )}
         {/* drifting colour orbs */}
         {!reduced && (
           <>
