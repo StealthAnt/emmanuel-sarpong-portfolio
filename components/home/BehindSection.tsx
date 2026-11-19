@@ -8,7 +8,7 @@ import { site } from "@/content/site";
 
 const cards = [
   { label: "Campaign craft", image: "/images/projects/telecel-unlock-x.jpg" },
-  { label: "Brand worlds", image: "/images/projects/vaseline-cocoa-glow.jpg" },
+  { label: "Brand worlds", image: "/images/projects/vaseline-even-tone.jpg" },
   { label: "People first", image: "/images/projects/sc-mental-health-unmask.jpg" },
 ];
 
