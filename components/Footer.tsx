@@ -55,6 +55,9 @@ export default function Footer() {
               {item.label}
             </Link>
           ))}
+          <Link href="/admin" className="text-sm text-muted/60 transition-colors hover:text-white">
+            Admin
+          </Link>
           {socials.map((s) => (
             <a
               key={s.label}
