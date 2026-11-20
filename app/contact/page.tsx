@@ -68,6 +68,17 @@ export default function ContactPage() {
               <p className="mt-2 text-lg text-muted">Available on request — use the form or WhatsApp.</p>
             </div>
             <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-muted">CV</p>
+              <a
+                href={site.cvUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-flex items-center gap-2 text-lg font-bold text-white transition-colors hover:text-accent"
+              >
+                Download résumé (PDF) ↗
+              </a>
+            </div>
+            <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-muted">Socials</p>
               <div className="mt-3 flex gap-4">
                 {socials.length ? (

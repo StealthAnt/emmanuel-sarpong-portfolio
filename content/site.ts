@@ -6,6 +6,7 @@ export const site = {
   company: "Ogilvy Africa",
   email: "", // TODO: client email — not yet supplied
   phoneDisplay: "+233 55 739 3161",
+  cvUrl: "/files/cv-emmanuel-mensah-sarpong.pdf",
   whatsapp:
     "https://wa.me/233557393161?text=" +
     encodeURIComponent("Hi Emmanuel, I'm reaching out about a potential project."),
@@ -20,9 +21,9 @@ export const site = {
   stats: [
     { value: 5, suffix: "+", label: "years experience" },
     { value: 16, suffix: "", label: "brands" },
-    { value: 4, suffix: "", label: "industries" },
+    { value: 6, suffix: "", label: "industries" },
   ],
-  industries: ["Banking", "Healthcare", "FMCG", "Telecom"],
+  industries: ["Banking", "Healthcare", "FMCG", "Telecom", "Hospitality", "Social Impact"],
   bio: [
     "**Creative Designer and Art Director** with **5+ years of experience** across creative agency, media and freelance environments, translating brand objectives into visual concepts and multi-channel creative work.",
     "At **Ogilvy Africa since September 2023**, developing integrated campaigns for brands across **banking, healthcare, FMCG and telecommunications**. I combine design craft with **AI-enabled creative workflows** to explore concepts and improve production efficiency.",

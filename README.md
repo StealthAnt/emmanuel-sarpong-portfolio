@@ -50,7 +50,7 @@ Set `RESEND_API_KEY`, `CONTACT_TO_EMAIL` and `ADMIN_PASSWORD` in Project → Set
 - `site.email` — real email address (empty; form is the primary contact channel for now).
 - `site.socials` — LinkedIn / Behance / Instagram URLs (hidden until filled).
 - `site.heroTitles`, `site.tagline`, `site.heroSupporting`, `site.behindTitle`, `site.behindParagraph` — assumed copy, easily editable.
-- `content/experience.ts` — two earlier roles marked TODO.
+- `content/experience.ts` — timeline now reflects the client's CV; Pelican Hotel entry is marked "Project-based" (CV gives no dates).
 - `content/projects.ts` — project copy is OCR-derived from the creatives; challenge/idea/outcome sections are inferred and need client review. Case-study metrics still marked `[Metrics to be added by client.]`.
 
 ## Admin (`/admin`)

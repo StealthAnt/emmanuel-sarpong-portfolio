@@ -6,6 +6,7 @@ export type ExperienceEntry = {
   todo?: boolean; // flagged placeholder awaiting client details
 };
 
+// Source: client's CV (CV - Emmanuel Mensah Sarpong.pdf)
 export const experience: ExperienceEntry[] = [
   {
     company: "Ogilvy Africa",
@@ -13,17 +14,30 @@ export const experience: ExperienceEntry[] = [
     period: "Sept 2023 — Present",
     current: true,
   },
-  // TODO placeholders — replace with real earlier roles
   {
-    company: "[Media Company]",
-    role: "[Role]",
-    period: "[Dates]",
-    todo: true,
+    company: "Pelican Hotel",
+    role: "Creative Designer — Brand & Marketing",
+    period: "Project-based",
   },
   {
-    company: "[Freelance]",
-    role: "[Role]",
-    period: "[Dates]",
-    todo: true,
+    company: "Media 28",
+    role: "Freelance Creative Strategist & Designer",
+    period: "March 2020 — Present",
+    current: true,
+  },
+  {
+    company: "NUPS-G, KNUST",
+    role: "Graphic Designer & Photographer",
+    period: "Dec 2020 — 2023",
+  },
+  {
+    company: "Excelsis",
+    role: "Editor & Videographer Intern",
+    period: "Sept 2022 — Jan 2023",
+  },
+  {
+    company: "Ghone TV",
+    role: "Graphic Designer Intern",
+    period: "Aug 2020 — Jan 2021",
   },
 ];
