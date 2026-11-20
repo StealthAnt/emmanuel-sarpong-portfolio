@@ -56,7 +56,7 @@ const baseProjects: Project[] = [
     idea:
       "We built a scalable 'Unlock X' identity system — kinetic type, high-voltage gradients and a countdown mechanic — that extended into FBB Unlimited plan assets and Telecel Cash promo creatives.",
     outcome:
-      "Campaign assets deployed across ATL, OOH, social and the MyTelecel app through the launch window. [Metrics to be added by client.]",
+      "Campaign assets deployed across ATL, OOH, social and the MyTelecel app through the launch window.",
   },
   {
     slug: "sc-mental-health",
@@ -77,7 +77,7 @@ const baseProjects: Project[] = [
     idea:
       "The 'Voice What You Feel' platform paired empathetic illustration with direct, unflinching copy — 'Unmask and heal', 'Don't Work-Coat It' — designed for OOH and social cut-downs.",
     outcome:
-      " creatives ran across SC Ghana's social channels and OOH placements for World Mental Health Day. [Metrics to be added by client.]",
+      " creatives ran across SC Ghana's social channels and OOH placements for World Mental Health Day.",
   },
   {
     slug: "sc-inclusion-suite",
@@ -95,7 +95,7 @@ const baseProjects: Project[] = [
     idea:
       "Warm, people-first art direction with clear typographic hierarchy: 'Dinner wouldn't be the same without her' for breast cancer screening, and 'Inclusion starts with understanding' for Down Syndrome Day.",
     outcome:
-      "Assets deployed across SC Ghana's digital and OOH channels on the respective awareness days. [Metrics to be added by client.]",
+      "Assets deployed across SC Ghana's digital and OOH channels on the respective awareness days.",
   },
   {
     slug: "sc-mobile-promos",
@@ -116,7 +116,7 @@ const baseProjects: Project[] = [
     idea:
       "A bold, promo-first design system with clear mechanic callouts — prize amounts, T&Cs, USPs — flexing across ATL, OOH, social and in-app placements.",
     outcome:
-      "Promo assets shipped across ATL, digital and branch touchpoints through the campaign calendar. [Metrics to be added by client.]",
+      "Promo assets shipped across ATL, digital and branch touchpoints through the campaign calendar.",
   },
   {
     slug: "dbg-impact-report",
@@ -144,7 +144,7 @@ const baseProjects: Project[] = [
     idea:
       "A confident editorial system pairing bold DBG gold identity with infographic-led layouts that turn lending statistics into a compelling growth story.",
     outcome:
-      "Report and ATL assets produced for DBG's impact communications. [Metrics to be added by client.]",
+      "Report and ATL assets produced for DBG's impact communications.",
   },
   {
     slug: "vaseline-cocoa-glow",
@@ -172,7 +172,7 @@ const baseProjects: Project[] = [
     idea:
       "Warm, ingredient-led art direction — cocoa, argan oil, shea — with bold product typography and benefit callouts (48h/72h moisturisation, SPF 10) built for retail and social.",
     outcome:
-      "Key visuals and range creatives produced for Vaseline Africa's Intensive Care portfolio. [Metrics to be added by client.]",
+      "Key visuals and range creatives produced for Vaseline Africa's Intensive Care portfolio.",
   },
   {
     slug: "comfort-wardrobe",
@@ -190,7 +190,7 @@ const baseProjects: Project[] = [
     idea:
       "The 'Humanized' platform paired warm, tactile visuals with the insight that your wardrobe is your happy place — extended across OOH, TV and digital.",
     outcome:
-      "Campaign creatives approved and deployed across ATL and digital channels. [Metrics to be added by client.]",
+      "Campaign creatives approved and deployed across ATL and digital channels.",
   },
   {
     slug: "lifebuoy-protection",
@@ -208,7 +208,7 @@ const baseProjects: Project[] = [
     idea:
       "Benefit-first creative pairing the '100% stronger germ protection' claim with warm family moments — 'Experience life's joys, worry-free'.",
     outcome:
-      "ATL and digital assets produced for Lifebuoy's improved-formula launch. [Metrics to be added by client.]",
+      "ATL and digital assets produced for Lifebuoy's improved-formula launch.",
   },
   {
     slug: "cocacola-fifa-2026",
@@ -226,7 +226,7 @@ const baseProjects: Project[] = [
     idea:
       "High-energy matchday creative built around the official-partner badging and the 'Get a FIFA' mechanic, designed for ATL and social cut-downs.",
     outcome:
-      "Activation creative produced for the World Cup 2026 partnership window. [Metrics to be added by client.]",
+      "Activation creative produced for the World Cup 2026 partnership window.",
   },
   {
     slug: "pelican-hotel",
@@ -251,7 +251,7 @@ const baseProjects: Project[] = [
     idea:
       "Editorial ATL and digital layouts pairing property photography with a refined 'Discover...' brand line and direct booking information.",
     outcome:
-      "Campaign assets produced for The Pelican Hotel's marketing channels. [Metrics to be added by client.]",
+      "Campaign assets produced for The Pelican Hotel's marketing channels.",
   },
   {
     slug: "unicef-hpv",
@@ -276,7 +276,7 @@ const baseProjects: Project[] = [
     idea:
       "An emotive health film speaking directly to parents — 'Protect your 9–14 year old daughter against cervical cancer to keep her dreams alive' — built for broadcast and social.",
     outcome:
-      "Campaign film produced for the HPV vaccination awareness drive. [Metrics to be added by client.]",
+      "Campaign film produced for the HPV vaccination awareness drive.",
   },
   {
     slug: "bee-the-reason",
@@ -301,7 +301,7 @@ const baseProjects: Project[] = [
     idea:
       "The 'Be The Reason' platform reframed conservation as personal agency — a punchy, youth-coded film showing how small actions bring the buzz back.",
     outcome:
-      "Campaign film produced for the bee:wild conservation initiative. [Metrics to be added by client.]",
+      "Campaign film produced for the bee:wild conservation initiative.",
   },
   {
     slug: "agra-cocoa",
@@ -326,7 +326,7 @@ const baseProjects: Project[] = [
     idea:
       "A hopeful, landscape-led film positioning African farmers as the future of food systems, built around the 'promising future' narrative.",
     outcome:
-      "Brand film produced for AGRA's agriculture programmes. [Metrics to be added by client.]",
+      "Brand film produced for AGRA's agriculture programmes.",
   },
   {
     slug: "ayra-starr-mobo",
@@ -351,7 +351,7 @@ const baseProjects: Project[] = [
     idea:
       "A high-energy announcement piece built around the official winner badge — designed to cut through the awards-night noise.",
     outcome:
-      "Announcement creative delivered for the MOBO Awards 2025 moment. [Metrics to be added by client.]",
+      "Announcement creative delivered for the MOBO Awards 2025 moment.",
   },
   {
     slug: "the-other-side",
@@ -381,7 +381,7 @@ const baseProjects: Project[] = [
     idea:
       "A moody, narrative-led treatment built around the 'other side' concept — teased first, then released as a full short film.",
     outcome:
-      "Teaser and full music video produced for Basit's release. [Metrics to be added by client.]",
+      "Teaser and full music video produced for Basit's release.",
   },
   {
     slug: "ogilvy-eid",
@@ -406,7 +406,7 @@ const baseProjects: Project[] = [
     idea:
       "A short celebratory film capturing Eid moments across the Ogilvy Africa community, wrapped in clean agency branding.",
     outcome:
-      "Eid film produced and shared across Ogilvy Africa's channels. [Metrics to be added by client.]",
+      "Eid film produced and shared across Ogilvy Africa's channels.",
   },
 ];
 

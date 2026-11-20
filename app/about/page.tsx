@@ -9,6 +9,7 @@ import { Reveal, FadeIn } from "@/components/Reveal";
 import Stat from "@/components/Stat";
 import RichText from "@/components/RichText";
 import { site } from "@/content/site";
+import { education, certifications, tools, languages, achievements } from "@/content/credentials";
 
 export const metadata: Metadata = {
   title: "About",
@@ -104,6 +105,82 @@ export default function AboutPage() {
           description="Where I've been, and what I've been doing."
         />
         <Timeline />
+      </section>
+
+      {/* Education & credentials */}
+      <section className="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-32" aria-labelledby="credentials">
+        <SectionHeader
+          eyebrow="Background"
+          title={<span id="credentials">Education & Credentials</span>}
+          description="The study, certification and recognition behind the work."
+        />
+        <div className="grid gap-5 lg:grid-cols-2">
+          <FadeIn>
+            <div className="h-full rounded-3xl border border-white/8 bg-white/[0.03] p-8">
+              <h3 className="text-lg font-bold text-accent">Education</h3>
+              <ul className="mt-5 space-y-5">
+                {education.map((e) => (
+                  <li key={e.degree}>
+                    <p className="font-bold">{e.degree}</p>
+                    <p className="mt-1 text-sm text-muted">{e.school}</p>
+                    <p className="mt-1 text-xs text-muted/70">
+                      {e.period}
+                      {e.note ? ` · ${e.note}` : ""}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div className="h-full rounded-3xl border border-white/8 bg-white/[0.03] p-8">
+              <h3 className="text-lg font-bold text-accent">Certifications</h3>
+              <ul className="mt-5 space-y-3">
+                {certifications.map((c) => (
+                  <li key={c} className="flex items-start gap-3 text-sm text-muted">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeIn>
+        </div>
+
+        {/* Tools */}
+        <FadeIn delay={0.15} className="mt-5">
+          <div className="rounded-3xl border border-white/8 bg-white/[0.03] p-8">
+            <h3 className="text-lg font-bold text-accent">Tools & Production</h3>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {tools.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-white/15 px-4 py-1.5 text-sm text-muted"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+            <p className="mt-6 text-sm text-muted">
+              <span className="font-bold text-white">Languages:</span> {languages.join(" · ")}
+            </p>
+          </div>
+        </FadeIn>
+
+        {/* Achievements */}
+        <FadeIn delay={0.2} className="mt-5">
+          <div className="rounded-3xl border border-white/8 bg-white/[0.03] p-8">
+            <h3 className="text-lg font-bold text-accent">Recognition</h3>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {achievements.map((a) => (
+                <li key={a} className="flex items-start gap-3 text-sm text-muted">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                  {a}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </FadeIn>
       </section>
     </>
   );
